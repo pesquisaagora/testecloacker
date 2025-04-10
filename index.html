@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Se lascou</title>
   <style>
     body {
@@ -24,16 +24,12 @@
     const isOffline = location.protocol === 'file:';
 
     if (!isOffline) {
-      // Carrega conteúdo real dinamicamente
-      fetch("real.html")
+      fetch('real.html')
         .then(r => r.text())
         .then(html => {
           document.open();
           document.write(html);
           document.close();
-        })
-        .catch(() => {
-          document.getElementById("msg").innerHTML = "<h1>Erro ao carregar o conteúdo real.</h1>";
         });
     }
   </script>

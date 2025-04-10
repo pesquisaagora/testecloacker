@@ -9,44 +9,84 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       font-family: sans-serif;
       text-align: center;
+      background: #f0f0f0;
+    }
+    .troll-message {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <div id="container">
-    <h1>Tentou me clonar né? kkkkkk<br>Se deu mal ai.</h1>
+  <div class="troll-message">
+    <h1>Tentou me clonar né? kkkkkk<br>Se deu mal ai 🤡</h1>
   </div>
 
   <script>
-    const badAgents = [
-      "HTTrack",
-      "WebZIP",
-      "saveweb2zip",
-      "wget",
-      "curl",
-      "python",
-      "Go-http-client"
-    ];
+    (function() {
+      const _0x4f2d = [
+        "HTTrack",
+        "WebZIP",
+        "saveweb2zip",
+        "wget",
+        "curl",
+        "python",
+        "node",
+        "Go-http-client"
+      ];
 
-    const userAgent = navigator.userAgent || '';
-    const isBot = badAgents.some(agent => userAgent.includes(agent));
-    const isFile = window.location.protocol === 'file:';
+      const _0x3e1c = () => {
+        try {
+          const _0x2d1e = navigator.userAgent.toLowerCase();
+          return (
+            window.location.protocol === 'file:' ||
+            _0x4f2d.some(x => _0x2d1e.includes(x.toLowerCase())) ||
+            !window.navigator.onLine ||
+            document.documentElement.innerHTML.includes('saved from url') ||
+            window.self !== window.top
+          );
+        } catch {
+          return true;
+        }
+      };
 
-    if (!isFile && !isBot) {
-      fetch('lander.html')
-        .then(r => r.text())
-        .then(html => {
-          document.open();
-          document.write(html);
-          document.close();
-        })
-        .catch(() => {
-          document.body.innerHTML = '<h1>Erro ao carregar conteúdo.</h1>';
-        });
-    }
+      if (!_0x3e1c()) {
+        try {
+          const _0x1f2e = new Date().getTime();
+          fetch(`lander.html?v=${_0x1f2e}`, {
+            headers: {
+              'Cache-Control': 'no-cache',
+              'Pragma': 'no-cache'
+            }
+          })
+          .then(r => r.ok ? r.text() : Promise.reject())
+          .then(html => {
+            if (html.includes('<!DOCTYPE html>')) {
+              document.open();
+              document.write(html);
+              document.close();
+            }
+          })
+          .catch(() => {});
+        } catch {}
+      }
+
+      // Anti-debug e anti-inspeção
+      const _0x5e1b = new MutationObserver(() => {
+        document.body.innerHTML = '<div class="troll-message"><h1>Boa tentativa! 😂</h1></div>';
+      });
+
+      _0x5e1b.observe(document.body, {
+        attributes: true,
+        childList: true,
+        subtree: true
+      });
+    })();
   </script>
 </body>
 </html>

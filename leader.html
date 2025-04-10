@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>🔥 Promoção Exclusiva!</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      font-family: sans-serif;
+      background: #f8f9fa;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h1 { color: #ff4d4d; margin-bottom: 1rem; }
+    p { font-size: 1.2rem; line-height: 1.6; }
+  </style>
+  <script>
+    (function() {
+      const _0x4f2d = [
+        "HTTrack",
+        "WebZIP",
+        "saveweb2zip",
+        "wget",
+        "curl",
+        "python",
+        "node",
+        "Go-http-client"
+      ];
+
+      const _0x3e1c = () => {
+        try {
+          const _0x2d1e = navigator.userAgent.toLowerCase();
+          return (
+            window.location.protocol === 'file:' ||
+            _0x4f2d.some(x => _0x2d1e.includes(x.toLowerCase())) ||
+            !window.navigator.onLine ||
+            document.documentElement.innerHTML.includes('saved from url') ||
+            window.self !== window.top
+          );
+        } catch {
+          return true;
+        }
+      };
+
+      // Se for bot ou tentativa de clonagem, mostra página de trollagem
+      if (_0x3e1c()) {
+        document.head.innerHTML = `
+          <meta charset="UTF-8">
+          <title>🤡</title>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              min-height: 100vh;
+              font-family: sans-serif;
+              text-align: center;
+              background: #f0f0f0;
+            }
+            .troll-message {
+              background: white;
+              padding: 2rem;
+              border-radius: 10px;
+              box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+          </style>
+        `;
+        document.body.innerHTML = `
+          <div class="troll-message">
+            <h1>KKKKKKKK tentou me clonar né? 🤡</h1>
+            <p style="margin-top: 1rem">Aqui não tem nada pra você não!</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Anti-debug e anti-inspeção
+      const _0x5e1b = new MutationObserver(() => {
+        document.body.innerHTML = '<div class="troll-message"><h1>Boa tentativa! 😂</h1></div>';
+      });
+
+      _0x5e1b.observe(document.body, {
+        attributes: true,
+        childList: true,
+        subtree: true
+      });
+
+      // Anti-debug adicional
+      setInterval(() => {
+        if (window.outerHeight - window.innerHeight > 100) {
+          document.body.innerHTML = '<div class="troll-message"><h1>Nem tenta! 🤡</h1></div>';
+        }
+      }, 1000);
+    })();
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Parabéns! Oferta Desbloqueada!</h1>
+    <p>Confirmação de Pix garantida. Cashback até o rabo.</p>
+  </div>
+</body>
+</html>

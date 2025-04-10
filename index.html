@@ -2,31 +2,40 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Site Normal</title>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const isOfflineClone =
-        window.location.protocol === 'file:' ||
-        navigator.userAgent.includes('HTTrack') ||
-        navigator.userAgent.includes('WebZIP') ||
-        navigator.userAgent.includes('saveweb2zip') ||
-        navigator.userAgent.includes('wget') ||
-        navigator.userAgent.includes('curl');
-
-      if (isOfflineClone) {
-        document.body.innerHTML = `
-          <div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;text-align:center;">
-            <h1>Tentou me clonar né? kkkkkk<br>Se deu mal ai</h1>
-          </div>
-        `;
-        // Opcional: trava interação
-        document.body.style.pointerEvents = 'none';
-      }
-    });
-  </script>
+  <title>Se lascou</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bem-vindo ao meu site real 👀</h1>
-  <p>Esse conteúdo só aparece se tu não for um ladrão de .zip 👹</p>
+  <div id="msg">
+    <h1>Tentou me clonar né? kkkkkk<br>Se deu mal ai</h1>
+  </div>
+
+  <script>
+    const isOffline = location.protocol === 'file:';
+
+    if (!isOffline) {
+      // Carrega conteúdo real dinamicamente
+      fetch("real.html")
+        .then(r => r.text())
+        .then(html => {
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(() => {
+          document.getElementById("msg").innerHTML = "<h1>Erro ao carregar o conteúdo real.</h1>";
+        });
+    }
+  </script>
 </body>
 </html>

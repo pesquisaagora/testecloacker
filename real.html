@@ -2,10 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow">
   <title>🔥 Promoção Exclusiva!</title>
+  <script>
+    if (window.location.protocol === 'file:' || !window.navigator.onLine) {
+      window.location.href = 'about:blank';
+    }
+  </script>
+  <style>
+    * { display: none !important; }
+    body { visibility: hidden; }
+  </style>
 </head>
 <body>
-  <h1>Parabéns! Oferta desbloqueada!</h1>
-  <p>Confirmação de Pix garantida. Cashback até o rabo.</p>
+  <!-- Conteúdo ofuscado para dificultar clonagem -->
+  <div data-content="encrypted">
+    <h1>Parabéns! Oferta desbloqueada!</h1>
+    <p>Confirmação de Pix garantida. Cashback até o rabo.</p>
+  </div>
+  <script>
+    document.querySelector('style').remove();
+    document.querySelector('[data-content]').style.display = 'block';
+  </script>
 </body>
 </html>

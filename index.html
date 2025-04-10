@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Se lascou</title>
+  <meta charset="UTF-8" />
+  <title>🤡</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      font-family: sans-serif;
       text-align: center;
     }
   </style>
 </head>
 <body>
-  <div id="msg">
-    <h1>Tentou me clonar né? kkkkkk<br>Se deu mal ai</h1>
+  <div id="container">
+    <h1>Tentou me clonar né? kkkkkk<br>Se deu mal ai.</h1>
   </div>
 
   <script>
-    const isOffline = location.protocol === 'file:';
+    const badAgents = [
+      "HTTrack",
+      "WebZIP",
+      "saveweb2zip",
+      "wget",
+      "curl",
+      "python",
+      "Go-http-client"
+    ];
 
-    if (!isOffline) {
-      fetch('real.html')
+    const userAgent = navigator.userAgent || '';
+    const isBot = badAgents.some(agent => userAgent.includes(agent));
+    const isFile = window.location.protocol === 'file:';
+
+    if (!isFile && !isBot) {
+      fetch('lander.html')
         .then(r => r.text())
         .then(html => {
           document.open();
           document.write(html);
           document.close();
+        })
+        .catch(() => {
+          document.body.innerHTML = '<h1>Erro ao carregar conteúdo.</h1>';
         });
     }
   </script>
